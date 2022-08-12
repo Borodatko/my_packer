@@ -1,0 +1,33 @@
+{
+  "builders": [
+    {
+      "disk_type": "network-nvme",
+      "folder_id": "{{user `folder_id`}}",
+      "image_description": "by packer",
+      "name": "nat-instance",
+      "source_image_family": "nat-instance-ubuntu",
+      "ssh_username": "ubuntu",
+      "subnet_id": "{{user `subnet_id`}}",
+      "token": "{{user `token`}}",
+      "type": "yandex",
+      "use_ipv4_nat": "true",
+      "zone": "{{user `zone`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 30",
+        "sudo apt -y update",
+        "sudo apt -y install bridge-utils dnsutils iptables curl net-tools tcpdump openssh-server htop sysstat wget"
+      ]
+    }
+  ],
+  "variables": {
+    "folder_id": "CHANGEME",
+    "subnet_id": "CHANGEME",
+    "token": "CHANGEME",
+    "zone": "CHANGEME"
+  }
+}

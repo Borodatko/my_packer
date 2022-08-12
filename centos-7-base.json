@@ -1,0 +1,30 @@
+{
+  "builders": [
+    {
+      "disk_type": "network-nvme",
+      "folder_id": "{{user `folder_id`}}",
+      "image_description": "by packer",
+      "image_family": "centos",
+      "name": "centos-7-base",
+      "source_image_family": "centos-7",
+      "ssh_username": "centos",
+      "subnet_id": "{{user `subnet_id`}}",
+      "token": "{{user `token`}}",
+      "type": "yandex",
+      "use_ipv4_nat": "true",
+      "zone": "{{user `zone`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "script": "provision.sh",
+      "type": "shell"
+    }
+  ]
+  "variables": {
+    "folder_id": "CHANGEME",
+    "subnet_id": "CHANGEME",
+    "token": "CHANGEME",
+    "zone": "CHANGEME"
+  }
+}

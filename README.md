@@ -14,4 +14,4 @@ Variables
 | folder_id | ID of your YC folder | string | CHANGEME |
 | subnet_id | ID of your YC subnet | string | CHANGEME |
 | token | your YC token | string | CHANGEME |
-| zone | YZ availability zone | string | CHANGEME |
+| zone | YC availability zone | string | CHANGEME |
